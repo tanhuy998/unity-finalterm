@@ -8,6 +8,8 @@ public class DetectPlayer : MonoBehaviour
 
     public int realizeBehind = 0;
 
+    public int approachCountDown = 0;
+
     public bool detectBehind = false;
     public bool faceright = true;
     public Collider2D front;
@@ -35,6 +37,10 @@ public class DetectPlayer : MonoBehaviour
             Flip();
             detectBehind = false;
         }
+
+        if (approachCountDown > 0) {
+            approachCountDown--;
+        }
     }
     
     public void Flip()
@@ -44,7 +50,5 @@ public class DetectPlayer : MonoBehaviour
         Scale = transform.localScale;
         Scale.x *= -1;
         transform.localScale = Scale;
-
-        faceright = (faceright) ? false : true;
     }
 }

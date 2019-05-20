@@ -5,7 +5,9 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {   
     public float speed = 50f, maxspeed = 3, jumpPow = 270f;
-    public bool grounded = true, faceright = true, doublejump = false;
+    public bool grounded = true, doublejump = false;
+
+    public int direction = 0;
    
     public int ourHealth;
     public int maxHealth = 4;
@@ -15,11 +17,15 @@ public class Enemy : MonoBehaviour
 
     public Rigidbody2D r2;
     public Animator anim;
+
+    public DetectPlayer det;
  
     // Use this for initialization
     void Start () {
         r2 = gameObject.GetComponent<Rigidbody2D>();
         anim = gameObject.GetComponent<Animator>();
+        
+        det = gameObject.GetComponent<DetectPlayer>();
 
         ourHealth = maxHealth;
 
@@ -35,16 +41,15 @@ public class Enemy : MonoBehaviour
  
     void FixedUpdate()
     {   
-        int h = 0;
-
-        r2.AddForce((Vector2.right) * speed * h);
+        //int h = 0;
+        if (det.approachCountDown == 0) {
+            r2.AddForce((Vector2.right) * speed * direction);
  
-        if (r2.velocity.x > maxspeed)
-            r2.velocity = new Vector2(maxspeed, r2.velocity.y);
-        if (r2.velocity.x < -maxspeed)
-            r2.velocity = new Vector2(-maxspeed, r2.velocity.y);
-       
-        
+            if (r2.velocity.x > maxspeed)
+                r2.velocity = new Vector2(maxspeed, r2.velocity.y);
+            if (r2.velocity.x < -maxspeed)
+                r2.velocity = new Vector2(-maxspeed, r2.velocity.y);
+        }
 
         if (grounded) {
             r2.velocity = new Vector2(r2.velocity.x*0.7f, r2.velocity.y);
