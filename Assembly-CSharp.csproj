@@ -69,6 +69,12 @@
      <Compile Include="Assets\Scripts\HeartUI.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
      <Compile Include="Assets\Scripts\PlayerAttack.cs" />
+     <Compile Include="Assets\Scripts\Skeleton\SkeletonDetPlayer.cs" />
+     <Compile Include="Assets\Scripts\Skeleton\SkeletonEnemy.cs" />
+     <Compile Include="Assets\Scripts\Skeleton\SkeletonEnemyAttack.cs" />
+     <Compile Include="Assets\Scripts\Skeleton\SkeletonEnemyAttackTrigger.cs" />
+     <Compile Include="Assets\Scripts\Skeleton\SkeletonFrontTrigger.cs" />
+     <Compile Include="Assets\Scripts\Skeleton\SkeletonRearTrigger.cs" />
      <Compile Include="Assets\Scripts\Spike.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>D:/Project/unity/game/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>

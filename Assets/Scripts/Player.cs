@@ -103,7 +103,7 @@ public class Player : MonoBehaviour {
     public void Damage(int dmg) {
         if (!damaged) {
             damaged = true;
-            damagedDelay = 50;
+            damagedDelay = 100;
             ourHealth -= dmg;
         }
     }
