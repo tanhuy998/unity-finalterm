@@ -97,7 +97,7 @@ public class Player : MonoBehaviour {
     }
 
     public void Death() {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
     }
 
     public void Damage(int dmg) {
